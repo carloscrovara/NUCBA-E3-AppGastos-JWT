@@ -8,22 +8,21 @@ datasource db {
   shadowDatabaseUrl  = env("SHADOW_DATABASE_URL")
 }
 
-model categorias {
-  id     String @id @default(dbgenerated("(uuid())")) @db.VarChar(36)
-  nombre String @db.VarChar(255) @unique
-  fecha_creacion DateTime  @default(now()) @db.Timestamp(0)
-  fecha_modificacion DateTime  @default(now()) @db.Timestamp(0) @updatedAt
-  fecha_eliminacion DateTime? @db.Timestamp(0)
-  gastos gastos[]
-}
-
 model gastos {
   id            String   @id @default(dbgenerated("(uuid())")) @db.VarChar(36)
   fecha_creacion DateTime @default(now()) @db.Timestamp(0)
   importe       Float    @db.Float
   descripcion   String   @db.VarChar(255)
-  categoriaId   String   @db.VarChar(36)
-  categoria  categorias  @relation(fields: [categoriaId], references: [id])
+  usuarioId String @db.VarChar(36)
+  usuario usuarios @relation(fields: [usuarioId], references: [id])
   fecha_modificacion DateTime @default(now()) @db.Timestamp(0) @updatedAt
   fecha_eliminacion DateTime? @db.Timestamp(0)
+}
+
+model usuarios {
+  id     String @id @default(dbgenerated("(uuid())")) @db.VarChar(36)
+  mail String @db.VarChar(255) @unique
+  password String @db.VarChar(255)
+  fecha_creacion DateTime  @default(now()) @db.Timestamp(0)
+  gastos gastos[]
 }

@@ -3,10 +3,6 @@ import { createGasto } from "../business-logic/createGasto";
 import { getGastos, getGastoItemId } from "../business-logic/getGasto";
 import { updateGasto } from "../business-logic/updateGasto";
 import { deleteGasto } from "../business-logic/deleteGasto";
-import { createCategoria } from "../business-logic/createCategoria";
-import { getCategorias, getCategoriaId } from "../business-logic/getCategoria";
-import { updateCategoria } from "../business-logic/updateCategoria";
-import { deleteCategoria } from "../business-logic/deleteCategoria";
 import { getTotalGastos } from "../business-logic/getTotalGastos";
 import { getGastosMes } from "../business-logic/getGastosMes";
 import { getTotalGastosMes } from "../business-logic/getTotalGastosMes";
@@ -103,62 +99,6 @@ export const getTotalGastosMesController = async (req: Request, res: Response) =
         }
         res.status(404).json({ message: `No se encontraron registros.` });
         return;
-    } catch (error: any) {
-        res.status(500).json({ message: error.message });
-    }
-};
-
-//CATEGORIAS
-export const getCategoriasController = async (req: Request, res: Response) => {
-    try {
-        const result = await getCategorias();
-        res.json(result);
-    } catch (error: any) {
-        res.status(500).json({ message: error.message });
-    }
-};
-
-export const getCategoriaIdController = async (req: Request, res: Response) => {
-    try {
-        const id = req.params.id;
-        const result = await getCategoriaId(id);
-        if (result) {
-            res.json(result);
-            return;
-        }
-        res.status(404).json({ message: `Categoria: ${id} no encontrada` });
-        return;
-    } catch (error: any) {
-        res.status(500).json({ message: error.message });
-    }
-};
-
-export const createCategoriaController = async (req: Request, res: Response) => {
-    try {
-        const newItemInput = req.body;
-        const result = await createCategoria(newItemInput);
-        res.json(result);
-    } catch (error: any) {
-        res.status(500).json({ message: error.message });
-    }
-};
-
-export const updateCategoriaController = async (req: Request, res: Response) => {
-    try {
-        const id = req.params.id;
-        const categoriaInput = req.body;
-        const result = await updateCategoria(id, categoriaInput);
-        res.json(result);
-    } catch (error: any) {
-        res.status(500).json({ message: error.message });
-    }
-};
-
-export const deleteCategoriaController = async (req: Request, res: Response) => {
-    try {
-        const id = req.params.id;
-        await deleteCategoria(id);
-        res.status(204).send();
     } catch (error: any) {
         res.status(500).json({ message: error.message });
     }

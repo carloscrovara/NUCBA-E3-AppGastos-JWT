@@ -2,8 +2,16 @@ import { Router } from "express";
 import * as controllers from "./controllers";
 import { createItemValidator as validator } from "./validators/validators";
 import { body } from "express-validator";
+import { authMiddleware } from "./middlewares/authMiddlewares";
 
 export const router = Router();
+
+//Ruta para registrarse
+
+
+//Ruta para loguearse
+
+router.use(authMiddleware); // MIDDLEWARE DE LOGIN
 
 //Ruta para crear un gasto
 router.post(
@@ -40,26 +48,3 @@ router.put(
 
 //Ruta para eliminar un gasto
 router.delete("/:id", controllers.deleteGastoController);
-
-//Ruta para crear una categoria
-router.post(
-    "/categoria", 
-    body("nombre").isString().notEmpty(),
-    validator,
-    controllers.createCategoriaController
-);
-
-//Rutas para obtener todas las categorias y para obtener una categoria por ID
-router.get("/categorias/listado", controllers.getCategoriasController);
-router.get("/categoria/:id", controllers.getCategoriaIdController);
-
-//Ruta para modificar una categoria
-router.put(
-    "/categoria/:id", 
-    body("nombre").isString().notEmpty(),
-    validator,
-    controllers.updateCategoriaController
-); 
-
-//Ruta para eliminar una categoria
-router.delete("/categoria/:id", controllers.deleteCategoriaController);

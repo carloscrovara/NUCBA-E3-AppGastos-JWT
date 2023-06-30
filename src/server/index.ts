@@ -1,5 +1,6 @@
 import express from "express";
 import { router } from "./router";
+import { authRouter } from "./AuthRouter";
 import { createPrismaClient } from "../repository/prisma";
 
 //Configuracion del puerto
@@ -8,6 +9,8 @@ const PORT = process.env.PORT || 3000;
 const app = express();
 
 app.use(express.json());
+
+app.use("/api/gastos/auth", authRouter);
 
 app.use("/api/gastos/", router);
 

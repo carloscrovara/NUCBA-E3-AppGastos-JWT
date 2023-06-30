@@ -21,7 +21,7 @@ model gastos {
 
 model usuarios {
   id     String @id @default(dbgenerated("(uuid())")) @db.VarChar(36)
-  mail String @db.VarChar(255) @unique
+  email String @db.VarChar(255) @unique
   password String @db.VarChar(255)
   fecha_creacion DateTime  @default(now()) @db.Timestamp(0)
   gastos gastos[]

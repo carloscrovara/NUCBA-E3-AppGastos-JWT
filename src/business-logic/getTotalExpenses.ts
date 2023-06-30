@@ -1,6 +1,6 @@
 import { prisma } from "../repository/prisma";
 
-export async function getTotalGastos() {
+export async function getTotalExpenses() {
     try {
         const total = await prisma().gastos.aggregate({
             _sum: {

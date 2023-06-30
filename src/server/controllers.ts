@@ -1,26 +1,26 @@
 import { Request, Response } from "express";
-import { createGasto } from "../business-logic/createGasto";
-import { getGastos, getGastoItemId } from "../business-logic/getGasto";
-import { updateGasto } from "../business-logic/updateGasto";
-import { deleteGasto } from "../business-logic/deleteGasto";
-import { getTotalGastos } from "../business-logic/getTotalGastos";
-import { getGastosMes } from "../business-logic/getGastosMes";
-import { getTotalGastosMes } from "../business-logic/getTotalGastosMes";
+import { createExpense } from "../business-logic/createExpense";
+import { getExpenses, getExpenseItemId } from "../business-logic/getExpense";
+import { updateExpense } from "../business-logic/updateExpense";
+import { deleteExpense } from "../business-logic/deleteExpense";
+import { getTotalExpenses } from "../business-logic/getTotalExpenses";
+import { getMonthExpenses } from "../business-logic/getMonthExpenses";
+import { getTotalMonthExpenses } from "../business-logic/getTotalMonthExpenses";
 
 //GASTOS
-export const getGastosController = async (req: Request, res: Response) => {
+export const getExpensesController = async (req: Request, res: Response) => {
     try {
-        const result = await getGastos();
+        const result = await getExpenses();
         res.json(result);
     } catch (error: any) {
         res.status(500).json({ message: error.message });
     }
 };
 
-export const getGastoIdController = async (req: Request, res: Response) => {
+export const getExpenseIdController = async (req: Request, res: Response) => {
     try {
         const id = req.params.id;
-        const result = await getGastoItemId(id);
+        const result = await getExpenseItemId(id);
         if (result) {
             res.json(result);
             return;
@@ -32,51 +32,51 @@ export const getGastoIdController = async (req: Request, res: Response) => {
     }
 };
 
-export const createGastoController = async (req: Request, res: Response) => {
+export const createExpenseController = async (req: Request, res: Response) => {
     try {
         const newItemInput = req.body;
-        const result = await createGasto(newItemInput);
+        const result = await createExpense(newItemInput);
         res.json(result);
     } catch (error: any) {
         res.status(500).json({ message: error.message });
     }
 };
 
-export const updateGastoController = async (req: Request, res: Response) => {
+export const updateExpenseController = async (req: Request, res: Response) => {
     try {
         const id = req.params.id;
         const gastoInput = req.body;
-        const result = await updateGasto(id, gastoInput);
+        const result = await updateExpense(id, gastoInput);
         res.json(result);
     } catch (error: any) {
         res.status(500).json({ message: error.message });
     }
 };
 
-export const deleteGastoController = async (req: Request, res: Response) => {
+export const deleteExpenseController = async (req: Request, res: Response) => {
     try {
         const id = req.params.id;
-        await deleteGasto(id);
+        await deleteExpense(id);
         res.status(204).send();
     } catch (error: any) {
         res.status(500).json({ message: error.message });
     }
 };
 
-export const getTotalGastosController = async (req: Request, res: Response) => {
+export const getTotalExpensesController = async (req: Request, res: Response) => {
     try {
-        const result = await getTotalGastos();
+        const result = await getTotalExpenses();
         res.json(result);
     } catch (error: any) {
         res.status(500).json({ message: error.message });
     }
 };
 
-export const getGastoMesController = async (req: Request, res: Response) => {
+export const getMonthExpensesController = async (req: Request, res: Response) => {
     try {
         const anio = req.params.anio;
         const mes = req.params.mes;
-        const result = await getGastosMes(anio, mes);
+        const result = await getMonthExpenses(anio, mes);
         if (result) {
             res.json(result);
             return;
@@ -88,11 +88,11 @@ export const getGastoMesController = async (req: Request, res: Response) => {
     }
 };
 
-export const getTotalGastosMesController = async (req: Request, res: Response) => {
+export const getTotalMonthExpensesController = async (req: Request, res: Response) => {
     try {
         const anio = req.params.anio;
         const mes = req.params.mes;
-        const result = await getTotalGastosMes(anio, mes);
+        const result = await getTotalMonthExpenses(anio, mes);
         if (result) {
             res.json(result);
             return;

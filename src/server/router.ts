@@ -15,21 +15,21 @@ router.post(
     body("descripcion").isString().notEmpty(),
     body("usuarioId").isString().notEmpty(),
     validator,
-    controllers.createGastoController
+    controllers.createExpenseController
 );
 
 //Rutas para obtener todos los gastos y para obtener un gasto por ID
-router.get("/", controllers.getGastosController);
-router.get("/:id", controllers.getGastoIdController);
+router.get("/", controllers.getExpensesController);
+router.get("/:id", controllers.getExpenseIdController);
 
 //Ruta para consultar los gastos de un mes y año en particular
-router.get("/consulta/:anio/:mes", controllers.getGastoMesController);
+router.get("/consulta/:anio/:mes", controllers.getMonthExpensesController);
 
 //Ruta para consultar el total de gastos de un mes y año en particular
-router.get("/consulta/total/:anio/:mes", controllers.getTotalGastosMesController);
+router.get("/consulta/total/:anio/:mes", controllers.getTotalMonthExpensesController);
 
 //Ruta para obtener el total de gastos registrados
-router.get("/consulta/total", controllers.getTotalGastosController);
+router.get("/consulta/total", controllers.getTotalExpensesController);
 
 //Ruta para modificar un gasto
 router.put(
@@ -38,8 +38,8 @@ router.put(
     body("descripcion").isString().notEmpty(),
     body("usuarioId").isString().notEmpty(),
     validator,    
-    controllers.updateGastoController
+    controllers.updateExpenseController
 );
 
 //Ruta para eliminar un gasto
-router.delete("/:id", controllers.deleteGastoController);
+router.delete("/:id", controllers.deleteExpenseController);

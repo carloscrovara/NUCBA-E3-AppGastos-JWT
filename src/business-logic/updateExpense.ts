@@ -1,7 +1,7 @@
 import { Item } from "./types/Item";
 import { prisma } from "../repository/prisma";
 
-export async function updateGasto(id: string, item: Item) {
+export async function updateExpense(id: string, item: Item) {
         try {
             if (id !== item.id) {
                 throw new Error("Id de gasto no coincide con registros.");

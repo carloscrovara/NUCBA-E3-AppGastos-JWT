@@ -1,7 +1,7 @@
 import { Item } from "./types/Item";
 import { prisma } from "../repository/prisma";
 
-export async function createGasto(item: Item): Promise<Item> {
+export async function createExpense(item: Item): Promise<Item> {
     try {
         const db = prisma();
         const createdItem = await db.gastos.create({

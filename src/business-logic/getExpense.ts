@@ -1,7 +1,7 @@
 import { Item } from "./types/Item";
 import { prisma } from "../repository/prisma";
 
-export async function getGastos(): Promise<Item[]> {
+export async function getExpenses(): Promise<Item[]> {
     try {
         const items = await prisma()?.gastos.findMany();
         return items;
@@ -11,7 +11,7 @@ export async function getGastos(): Promise<Item[]> {
     }
 }
 
-export async function getGastoItemId(itemId: string): Promise<Item| null> {
+export async function getExpenseItemId(itemId: string): Promise<Item| null> {
     try {
         const db = prisma();
         const item = await db.gastos.findUnique({

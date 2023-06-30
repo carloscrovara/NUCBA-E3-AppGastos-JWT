@@ -1,6 +1,6 @@
-import bcrypt from 'bcrypt'
-import jwt from 'jsonwebtoken'
-import { prisma } from '../repository/prisma'
+import bcrypt from 'bcrypt';
+import jwt from 'jsonwebtoken';
+import { prisma } from '../repository/prisma';
 
 const access_token_secret =  process.env.ACCESS_TOKEN_SECRET ?? ''
 const refresh_token_secret = process.env.REFRESH_TOKEN_SECRET ?? ''

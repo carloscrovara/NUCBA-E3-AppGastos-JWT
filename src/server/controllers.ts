@@ -10,7 +10,7 @@ import { getTotalMonthExpenses } from "../business-logic/getTotalMonthExpenses";
 //GASTOS
 export const getExpensesController = async (req: Request, res: Response) => {
     try {
-        const result = await getExpenses();
+        const result = await getExpenses(res);
         res.json(result);
     } catch (error: any) {
         res.status(500).json({ message: error.message });
@@ -65,7 +65,7 @@ export const deleteExpenseController = async (req: Request, res: Response) => {
 
 export const getTotalExpensesController = async (req: Request, res: Response) => {
     try {
-        const result = await getTotalExpenses();
+        const result = await getTotalExpenses(res);
         res.json(result);
     } catch (error: any) {
         res.status(500).json({ message: error.message });

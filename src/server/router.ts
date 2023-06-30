@@ -1,6 +1,6 @@
 import { Router } from "express";
 import * as controllers from "./controllers";
-import { createItemValidator as validator } from "./validators/validators";
+import { validator } from "./validators/validators";
 import { body } from "express-validator";
 import { authMiddleware } from "./middlewares/authMiddlewares";
 

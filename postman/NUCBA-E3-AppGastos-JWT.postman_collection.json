@@ -1,0 +1,262 @@
+{
+	"info": {
+		"_postman_id": "149df956-3edb-447b-abc4-79e68a4bcc3e",
+		"name": "NUCBA-E3-AppGastos-JWT",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"cami@gmail.com\",\r\n    \"password\": \"cami1234\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/gastos/auth/register",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"gastos",
+						"auth",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"cami@gmail.com\",\r\n    \"password\": \"cami1234\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/gastos/auth/login",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"gastos",
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create expense",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImNhbWlAZ21haWwuY29tIiwicm9sZSI6IlVTRVIiLCJpYXQiOjE2ODgxNDI1OTksImV4cCI6MTY4ODE0NjE5OX0.hs-eNNXChWpMnJSoweiHnJU9WqgwLlrz7B-eUOGWjHU",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"importe\": 4000,\r\n    \"descripcion\": \"ABL\",\r\n    \"usuarioId\": \"ceed85e6-1755-11ee-ad17-0cc47a347b24\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/gastos/",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"gastos",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Modify expense",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImNhbWlAZ21haWwuY29tIiwicm9sZSI6IlVTRVIiLCJpYXQiOjE2ODgxNDU3MjMsImV4cCI6MTY4ODE0OTMyM30.FQhlbQq0ObcZAwy18clmMz8Z0Eyp1YJ2l-NB2RCVtJ0",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": \"b3dc6b41-176a-11ee-ad17-0cc47a347b24\",\r\n    \"importe\": 4600,\r\n    \"descripcion\": \"Monotributo\",\r\n    \"usuarioId\": \"ceed85e6-1755-11ee-ad17-0cc47a347b24\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/gastos/:id",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"gastos",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete expense",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImNhbWlAZ21haWwuY29tIiwicm9sZSI6IlVTRVIiLCJpYXQiOjE2ODgxNDU3MjMsImV4cCI6MTY4ODE0OTMyM30.FQhlbQq0ObcZAwy18clmMz8Z0Eyp1YJ2l-NB2RCVtJ0",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/gastos/:id",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"gastos",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all expenses from user",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/gastos/",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"gastos",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get total expenses from user",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImNhbWlAZ21haWwuY29tIiwicm9sZSI6IlVTRVIiLCJpYXQiOjE2ODgxNDg1ODEsImV4cCI6MTY4ODE1MjE4MX0.k5-ahhoIfYc78ZAa7vqMFojTEhVCQuqlE3WVzZb8WfI",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/gastos/consulta/total",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"gastos",
+						"consulta",
+						"total"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

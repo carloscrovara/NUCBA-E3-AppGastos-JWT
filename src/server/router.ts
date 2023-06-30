@@ -13,7 +13,7 @@ router.post(
     "/", 
     body("importe").isNumeric().notEmpty(),
     body("descripcion").isString().notEmpty(),
-    body("categoriaId").isString().notEmpty(),
+    body("usuarioId").isString().notEmpty(),
     validator,
     controllers.createGastoController
 );
@@ -36,7 +36,7 @@ router.put(
     "/:id", 
     body("importe").isNumeric().notEmpty(),
     body("descripcion").isString().notEmpty(),
-    body("categoriaId").isString().notEmpty(),
+    body("usuarioId").isString().notEmpty(),
     validator,    
     controllers.updateGastoController
 );

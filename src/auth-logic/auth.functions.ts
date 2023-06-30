@@ -38,8 +38,6 @@ export const login = async (email: string, password: string): Promise<loginRespo
 }
 
 export const register = async (email: string, password: string): Promise<any> => {
-    //TODO: Validar que el email no exista
-
     const hash = await bcrypt.hash(password, 10);
     
     try {

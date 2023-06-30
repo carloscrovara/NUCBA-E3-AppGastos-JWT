@@ -6,11 +6,6 @@ import { authMiddleware } from "./middlewares/authMiddlewares";
 
 export const router = Router();
 
-//Ruta para registrarse
-
-
-//Ruta para loguearse
-
 router.use(authMiddleware); // MIDDLEWARE DE LOGIN
 
 //Ruta para crear un gasto

@@ -4,7 +4,7 @@ import { prisma } from "../repository/prisma";
 
 export async function getExpenses(res: Response): Promise<Item[]> {
     try {
-        const items = await prisma()?.gastos.findMany({
+        const items = await prisma().gastos.findMany({
             where: {
                 usuario: {
                     email: res.locals.email,

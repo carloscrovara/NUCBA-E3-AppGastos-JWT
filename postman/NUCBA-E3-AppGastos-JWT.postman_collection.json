@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "149df956-3edb-447b-abc4-79e68a4bcc3e",
+		"_postman_id": "037a6215-5e6e-4ac3-9b2c-e417214adb84",
 		"name": "NUCBA-E3-AppGastos-JWT",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -232,7 +232,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImNhbWlAZ21haWwuY29tIiwicm9sZSI6IlVTRVIiLCJpYXQiOjE2ODgxNzYwMTAsImV4cCI6MTY4ODE3OTYxMH0.8npbLJJxj8A_vli9kP13pW__7bntGy0e3IgVzjjKfs0",
 							"type": "string"
 						}
 					]
@@ -271,7 +271,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImNhbWlAZ21haWwuY29tIiwicm9sZSI6IlVTRVIiLCJpYXQiOjE2ODgxNDg1ODEsImV4cCI6MTY4ODE1MjE4MX0.k5-ahhoIfYc78ZAa7vqMFojTEhVCQuqlE3WVzZb8WfI",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImNhbWlAZ21haWwuY29tIiwicm9sZSI6IlVTRVIiLCJpYXQiOjE2ODgxNzYwMTAsImV4cCI6MTY4ODE3OTYxMH0.8npbLJJxj8A_vli9kP13pW__7bntGy0e3IgVzjjKfs0",
 							"type": "string"
 						}
 					]
@@ -289,6 +289,48 @@
 						"gastos",
 						"consulta",
 						"total"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get month expenses from user",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImNhbWlAZ21haWwuY29tIiwicm9sZSI6IlVTRVIiLCJpYXQiOjE2ODgxNzc5ODUsImV4cCI6MTY4ODE4MTU4NX0.d7UPRiATepIdqaJhwdLPOozb4CE6CjL8ydZoJKZ6OhY",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/gastos/consulta/:anio/:mes",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"gastos",
+						"consulta",
+						":anio",
+						":mes"
+					],
+					"variable": [
+						{
+							"key": "anio",
+							"value": ""
+						},
+						{
+							"key": "mes",
+							"value": ""
+						}
 					]
 				}
 			},

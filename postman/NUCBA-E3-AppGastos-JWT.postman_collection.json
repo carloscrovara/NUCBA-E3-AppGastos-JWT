@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "037a6215-5e6e-4ac3-9b2c-e417214adb84",
+		"_postman_id": "149df956-3edb-447b-abc4-79e68a4bcc3e",
 		"name": "NUCBA-E3-AppGastos-JWT",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -186,6 +186,48 @@
 			"response": []
 		},
 		{
+			"name": "Get all expenses from user",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/gastos/",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"gastos",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "Get expense from user",
 			"request": {
 				"auth": {
@@ -222,34 +264,22 @@
 			"response": []
 		},
 		{
-			"name": "Get all expenses from user",
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
+			"name": "Get all month expenses from user",
 			"request": {
 				"auth": {
 					"type": "bearer",
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImNhbWlAZ21haWwuY29tIiwicm9sZSI6IlVTRVIiLCJpYXQiOjE2ODgxNzYwMTAsImV4cCI6MTY4ODE3OTYxMH0.8npbLJJxj8A_vli9kP13pW__7bntGy0e3IgVzjjKfs0",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImNhcmxvc0BnbWFpbC5jb20iLCJyb2xlIjoiVVNFUiIsImlhdCI6MTY4ODM4OTQ3NCwiZXhwIjoxNjg4MzkzMDc0fQ.RWkWk-sWDqChbhUWBK9JqNowYXYIaFwslnV4ls_Xql4",
 							"type": "string"
 						}
 					]
 				},
 				"method": "GET",
 				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
 				"url": {
-					"raw": "localhost:3000/api/gastos/",
+					"raw": "localhost:3000/api/gastos/consulta/:usuarioId/:anio/:mes",
 					"host": [
 						"localhost"
 					],
@@ -257,7 +287,72 @@
 					"path": [
 						"api",
 						"gastos",
-						""
+						"consulta",
+						":usuarioId",
+						":anio",
+						":mes"
+					],
+					"variable": [
+						{
+							"key": "usuarioId",
+							"value": ""
+						},
+						{
+							"key": "anio",
+							"value": ""
+						},
+						{
+							"key": "mes",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get total month expenses from user",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImNhcmxvc0BnbWFpbC5jb20iLCJyb2xlIjoiVVNFUiIsImlhdCI6MTY4ODM4OTQ3NCwiZXhwIjoxNjg4MzkzMDc0fQ.RWkWk-sWDqChbhUWBK9JqNowYXYIaFwslnV4ls_Xql4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/gastos/consulta/total/:usuarioId/:anio/:mes",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"gastos",
+						"consulta",
+						"total",
+						":usuarioId",
+						":anio",
+						":mes"
+					],
+					"variable": [
+						{
+							"key": "usuarioId",
+							"value": ""
+						},
+						{
+							"key": "anio",
+							"value": ""
+						},
+						{
+							"key": "mes",
+							"value": ""
+						}
 					]
 				}
 			},
@@ -271,7 +366,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImNhbWlAZ21haWwuY29tIiwicm9sZSI6IlVTRVIiLCJpYXQiOjE2ODgxNzYwMTAsImV4cCI6MTY4ODE3OTYxMH0.8npbLJJxj8A_vli9kP13pW__7bntGy0e3IgVzjjKfs0",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImNhbWlAZ21haWwuY29tIiwicm9sZSI6IlVTRVIiLCJpYXQiOjE2ODgzODgwOTMsImV4cCI6MTY4ODM5MTY5M30.o_zEBLhHb8JuThmeJKxjpBJ-kkB1YbpwULP-dTBg1ao",
 							"type": "string"
 						}
 					]
@@ -289,48 +384,6 @@
 						"gastos",
 						"consulta",
 						"total"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Get month expenses from user",
-			"request": {
-				"auth": {
-					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImNhbWlAZ21haWwuY29tIiwicm9sZSI6IlVTRVIiLCJpYXQiOjE2ODgxNzc5ODUsImV4cCI6MTY4ODE4MTU4NX0.d7UPRiATepIdqaJhwdLPOozb4CE6CjL8ydZoJKZ6OhY",
-							"type": "string"
-						}
-					]
-				},
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "localhost:3000/api/gastos/consulta/:anio/:mes",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
-					"path": [
-						"api",
-						"gastos",
-						"consulta",
-						":anio",
-						":mes"
-					],
-					"variable": [
-						{
-							"key": "anio",
-							"value": ""
-						},
-						{
-							"key": "mes",
-							"value": ""
-						}
 					]
 				}
 			},

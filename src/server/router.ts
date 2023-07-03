@@ -8,6 +8,19 @@ export const router = Router();
 
 router.use(authMiddleware); // MIDDLEWARE DE LOGIN
 
+//Rutas para obtener todos los gastos de un usuario y para obtener un gasto por ID
+router.get("/", controllers.getExpensesController);
+router.get("/:id", controllers.getExpenseIdController);
+
+//Ruta para consultar los gastos de un usuario de un mes y año en particular
+router.get("/consulta/:usuarioId/:anio/:mes", controllers.getMonthExpensesController);
+
+//Ruta para consultar el total de gastos de un usuario de un mes y año en particular
+router.get("/consulta/total/:usuarioId/:anio/:mes", controllers.getTotalMonthExpensesController);
+
+//Ruta para obtener el total de gastos registrados de un usuario
+router.get("/consulta/total", controllers.getTotalExpensesController);
+
 //Ruta para crear un gasto
 router.post(
     "/", 
@@ -17,20 +30,6 @@ router.post(
     validator,
     controllers.createExpenseController
 );
-
-//Rutas para obtener todos los gastos y para obtener un gasto por ID
-router.get("/", controllers.getExpensesController);
-router.get("/:id", controllers.getExpenseIdController);
-
-//Ruta para consultar los gastos de un mes y año en particular
-router.get("/consulta/:anio/:mes", controllers.getMonthExpensesController);
-//router.get("/consulta/:anio/:mes/:diaDesde/:diaHasta", controllers.getMonthExpensesController);
-
-//Ruta para consultar el total de gastos de un mes y año en particular
-router.get("/consulta/total/:anio/:mes", controllers.getTotalMonthExpensesController);
-
-//Ruta para obtener el total de gastos registrados
-router.get("/consulta/total", controllers.getTotalExpensesController);
 
 //Ruta para modificar un gasto
 router.put(

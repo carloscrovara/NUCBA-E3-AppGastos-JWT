@@ -74,13 +74,10 @@ export const getTotalExpensesController = async (req: Request, res: Response) =>
 
 export const getMonthExpensesController = async (req: Request, res: Response) => {
     try {
+        const usuarioId = req.params.usuarioId;
         const anio = req.params.anio;
         const mes = req.params.mes;
-        /*
-        const diaDesde = req.params.diaDesde;
-        const diaHasta = req.params.diaHasta;
-        */
-        const result = await getMonthExpenses(anio, mes);
+        const result = await getMonthExpenses(usuarioId, anio, mes);
         if (result) {
             res.json(result);
             return;
@@ -94,9 +91,10 @@ export const getMonthExpensesController = async (req: Request, res: Response) =>
 
 export const getTotalMonthExpensesController = async (req: Request, res: Response) => {
     try {
+        const usuarioId = req.params.usuarioId;
         const anio = req.params.anio;
         const mes = req.params.mes;
-        const result = await getTotalMonthExpenses(anio, mes);
+        const result = await getTotalMonthExpenses(usuarioId, anio, mes);
         if (result) {
             res.json(result);
             return;

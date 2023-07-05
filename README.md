@@ -1,4 +1,4 @@
-# App de Gastos - JWT
+# App de Gastos - Auth
 
 ### Alumno: Carlos Crovara
 
@@ -22,4 +22,8 @@ en Postman importar la colección de requests que se encuentra en la carpeta pos
 
 ## Funcionalidades principales
 
--> 
+-> Registro y login de usuarios.
+
+-> Creación, modificación y eliminación de gastos de un usuario.
+
+-> Listado de gastos de un usuario.

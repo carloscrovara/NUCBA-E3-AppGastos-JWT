@@ -19,7 +19,11 @@ export const login = async (email: string, password: string): Promise<loginRespo
         
         if (result) {
             const accessToken = jwt.sign(
-                { email: email, role: "USER" },
+                { 
+                    email: email, 
+                    role: "USER", 
+                    userId: user.id 
+                },
                 access_token_secret,
                 {
                 expiresIn: "1h",

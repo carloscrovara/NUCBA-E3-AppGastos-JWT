@@ -20,7 +20,8 @@ export const getExpensesController = async (req: Request, res: Response) => {
 export const getExpenseIdController = async (req: Request, res: Response) => {
     try {
         const id = req.params.id;
-        const result = await getExpenseItemId(id);
+        const userId = res.locals.userId;
+        const result = await getExpenseItemId(id, userId);
         if (result) {
             res.json(result);
             return;

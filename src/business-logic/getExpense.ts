@@ -7,7 +7,7 @@ export async function getExpenses(res: Response): Promise<Item[]> {
         const items = await prisma().gastos.findMany({
             where: {
                 usuario: {
-                    email: res.locals.email,
+                    id: res.locals.userId,
                 },  
             },  
         });
@@ -18,16 +18,23 @@ export async function getExpenses(res: Response): Promise<Item[]> {
     }
 }
 
-export async function getExpenseItemId(itemId: string): Promise<Item| null> {
+export async function getExpenseItemId(itemId: string, userId:string): Promise<Item| null> {
     try {
         const db = prisma();
-        const item = await db.gastos.findUnique({
+        const usuarios = await db.usuarios.findUnique({
             where: {
-                id: itemId,
+                id: userId,
             },
+            include: { gastos: true },
         });
-    return item;
-    } catch (err) {
+
+    if (!usuarios) {
+        return null;
+    }
+
+    return usuarios.gastos.find((item) => item.id === itemId) ?? null;
+
+    } catch (err) { 
         console.log(err);
         throw err;
     }

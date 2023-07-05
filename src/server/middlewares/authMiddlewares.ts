@@ -17,6 +17,7 @@ export const authMiddleware =  async (req: Request, res: Response, next: NextFun
     if (data) {
         res.locals.email  = (data as any).email;
         res.locals.role = (data as any).role; 
+        res.locals.userId = (data as any).userId;
         next()
         return
     }

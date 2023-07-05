@@ -6,7 +6,6 @@ import { deleteExpense } from "../business-logic/deleteExpense";
 import { getTotalExpenses } from "../business-logic/getTotalExpenses";
 import { getMonthExpenses } from "../business-logic/getMonthExpenses";
 import { getTotalMonthExpenses } from "../business-logic/getTotalMonthExpenses";
-import { Item } from "../business-logic/types/Item";
 
 //GASTOS
 export const getExpensesController = async (req: Request, res: Response) => {

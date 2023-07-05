@@ -6,7 +6,7 @@ export async function getTotalExpenses(res: Response) {
         const total = await prisma().gastos.aggregate({
             where: {
                 usuario: {
-                    email: res.locals.email,
+                    id: res.locals.userId,
                 },  
             },  
             _sum: {

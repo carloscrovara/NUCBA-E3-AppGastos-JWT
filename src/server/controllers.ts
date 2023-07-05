@@ -73,12 +73,36 @@ export const getTotalExpensesController = async (req: Request, res: Response) =>
     }
 };
 
+/*
 export const getMonthExpensesController = async (req: Request, res: Response) => {
     try {
         const usuarioId = req.params.usuarioId;
         const anio = req.params.anio;
         const mes = req.params.mes;
         const result = await getMonthExpenses(usuarioId, anio, mes);
+        if (result) {
+            res.json(result);
+            return;
+        }
+        res.status(404).json({ message: `No se encontraron registros.` });
+        return;
+    } catch (error: any) {
+        res.status(500).json({ message: error.message });
+    }
+};
+*/
+
+export const getMonthExpensesController = async (req: Request, res: Response) => {
+    try {
+        const fechaInicial = req.params.fechaInicio;
+        const fechaFin  = req.params.fechaFinal;
+        const filterInput = {
+            dateRange: {
+                start: new Date(fechaInicial),
+                end: new Date(fechaFin),
+            },
+        }
+        const result = await getMonthExpenses(res, filterInput);
         if (result) {
             res.json(result);
             return;

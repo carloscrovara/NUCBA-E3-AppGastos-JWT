@@ -26,4 +26,4 @@ en Postman importar la colección de requests que se encuentra en la carpeta pos
 
 -> Creación, modificación y eliminación de gastos de un usuario.
 
--> Listado de gastos de un usuario.
+-> Consulta de listado de gastos de un usuario.

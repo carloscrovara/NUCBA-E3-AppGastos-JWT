@@ -16,7 +16,8 @@ router.get("/:id", controllers.getExpenseIdController);
 router.get("/consulta/:usuarioId/:anio/:mes", controllers.getMonthExpensesController);
 
 //Ruta para consultar el total de gastos de un usuario de un mes y año en particular
-router.get("/consulta/total/:usuarioId/:anio/:mes", controllers.getTotalMonthExpensesController);
+//router.get("/consulta/total/:usuarioId/:anio/:mes", controllers.getTotalMonthExpensesController);
+router.post("/consulta/total/rangoFechas/:fechaInicio/:fechaFinal", controllers.getTotalMonthExpensesController);
 
 //Ruta para obtener el total de gastos registrados de un usuario
 router.get("/consulta/total", controllers.getTotalExpensesController);

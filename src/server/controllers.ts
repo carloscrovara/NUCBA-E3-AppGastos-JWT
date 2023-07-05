@@ -48,7 +48,7 @@ export const updateExpenseController = async (req: Request, res: Response) => {
     try {
         const id = req.params.id;
         const gastoInput = req.body;
-        const result = await updateExpense(id, gastoInput, res);
+        const result = await updateExpense(id, gastoInput, res, req);
         res.json(result);
     } catch (error: any) {
         res.status(500).json({ message: error.message });

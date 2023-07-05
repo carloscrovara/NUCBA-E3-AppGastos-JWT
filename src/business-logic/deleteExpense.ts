@@ -2,7 +2,7 @@ import { prisma } from "../repository/prisma";
 
 export async function deleteExpense(id: string) {
     try {
-        const db = prisma();
+        const db = prisma();        
         await db.gastos.delete({ where: { id: id } });
         return;
     } catch (err) {

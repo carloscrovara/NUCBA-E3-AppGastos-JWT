@@ -36,7 +36,7 @@ export const getExpenseIdController = async (req: Request, res: Response) => {
 export const createExpenseController = async (req: Request, res: Response) => {
     try {
         const newItemInput = req.body;
-        const result = await createExpense(newItemInput);
+        const result = await createExpense(newItemInput, res);
         res.json(result);
     } catch (error: any) {
         res.status(500).json({ message: error.message });
@@ -47,7 +47,7 @@ export const updateExpenseController = async (req: Request, res: Response) => {
     try {
         const id = req.params.id;
         const gastoInput = req.body;
-        const result = await updateExpense(id, gastoInput);
+        const result = await updateExpense(id, gastoInput, res);
         res.json(result);
     } catch (error: any) {
         res.status(500).json({ message: error.message });

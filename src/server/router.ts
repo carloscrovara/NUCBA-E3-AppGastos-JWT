@@ -26,7 +26,6 @@ router.post(
     "/", 
     body("importe").isNumeric().notEmpty(),
     body("descripcion").isString().notEmpty(),
-    body("usuarioId").isString().notEmpty(),
     validator,
     controllers.createExpenseController
 );
@@ -36,7 +35,6 @@ router.put(
     "/:id", 
     body("importe").isNumeric().notEmpty(),
     body("descripcion").isString().notEmpty(),
-    body("usuarioId").isString().notEmpty(),
     validator,    
     controllers.updateExpenseController
 );

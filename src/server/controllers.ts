@@ -6,6 +6,7 @@ import { deleteExpense } from "../business-logic/deleteExpense";
 import { getTotalExpenses } from "../business-logic/getTotalExpenses";
 import { getMonthExpenses } from "../business-logic/getMonthExpenses";
 import { getTotalMonthExpenses } from "../business-logic/getTotalMonthExpenses";
+import { Item } from "../business-logic/types/Item";
 
 //GASTOS
 export const getExpensesController = async (req: Request, res: Response) => {
@@ -57,7 +58,7 @@ export const updateExpenseController = async (req: Request, res: Response) => {
 export const deleteExpenseController = async (req: Request, res: Response) => {
     try {
         const id = req.params.id;
-        await deleteExpense(id);
+        await deleteExpense(id, res);
         res.status(204).send();
     } catch (error: any) {
         res.status(500).json({ message: error.message });

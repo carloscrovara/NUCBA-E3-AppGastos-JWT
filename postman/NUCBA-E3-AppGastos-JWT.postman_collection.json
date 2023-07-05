@@ -12,7 +12,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"email\": \"cami@gmail.com\",\r\n    \"password\": \"cami1234\"\r\n}",
+					"raw": "{\r\n    \"email\": \"\",\r\n    \"password\": \"\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -42,7 +42,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"email\": \"cami@gmail.com\",\r\n    \"password\": \"cami1234\"\r\n}",
+					"raw": "{\r\n    \"email\": \"\",\r\n    \"password\": \"\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -73,7 +73,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImNhbWlAZ21haWwuY29tIiwicm9sZSI6IlVTRVIiLCJpYXQiOjE2ODgxNDI1OTksImV4cCI6MTY4ODE0NjE5OX0.hs-eNNXChWpMnJSoweiHnJU9WqgwLlrz7B-eUOGWjHU",
+							"value": "",
 							"type": "string"
 						}
 					]
@@ -82,7 +82,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"importe\": 4000,\r\n    \"descripcion\": \"ABL\",\r\n    \"usuarioId\": \"ceed85e6-1755-11ee-ad17-0cc47a347b24\"\r\n}",
+					"raw": "{\r\n    \"importe\": 60000,\r\n    \"descripcion\": \"Comida\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -112,7 +112,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImNhbWlAZ21haWwuY29tIiwicm9sZSI6IlVTRVIiLCJpYXQiOjE2ODgxNDU3MjMsImV4cCI6MTY4ODE0OTMyM30.FQhlbQq0ObcZAwy18clmMz8Z0Eyp1YJ2l-NB2RCVtJ0",
+							"value": "",
 							"type": "string"
 						}
 					]
@@ -121,7 +121,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"id\": \"b3dc6b41-176a-11ee-ad17-0cc47a347b24\",\r\n    \"importe\": 4600,\r\n    \"descripcion\": \"Monotributo\",\r\n    \"usuarioId\": \"ceed85e6-1755-11ee-ad17-0cc47a347b24\"\r\n}",
+					"raw": "{\r\n    \"importe\": 1,\r\n    \"descripcion\": \"\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -157,7 +157,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImNhbWlAZ21haWwuY29tIiwicm9sZSI6IlVTRVIiLCJpYXQiOjE2ODgxNDU3MjMsImV4cCI6MTY4ODE0OTMyM30.FQhlbQq0ObcZAwy18clmMz8Z0Eyp1YJ2l-NB2RCVtJ0",
+							"value": "",
 							"type": "string"
 						}
 					]
@@ -235,7 +235,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImNhbWlAZ21haWwuY29tIiwicm9sZSI6IlVTRVIiLCJpYXQiOjE2ODgxNTAyMjMsImV4cCI6MTY4ODE1MzgyM30.hoR7QYuwmeu3_E40EHf8UIOzjaapbUDv2SxccGbMfbI",
+							"value": "",
 							"type": "string"
 						}
 					]
@@ -271,7 +271,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImNhcmxvc0BnbWFpbC5jb20iLCJyb2xlIjoiVVNFUiIsImlhdCI6MTY4ODM4OTQ3NCwiZXhwIjoxNjg4MzkzMDc0fQ.RWkWk-sWDqChbhUWBK9JqNowYXYIaFwslnV4ls_Xql4",
+							"value": "",
 							"type": "string"
 						}
 					]
@@ -318,7 +318,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImNhcmxvc0BnbWFpbC5jb20iLCJyb2xlIjoiVVNFUiIsImlhdCI6MTY4ODM4OTQ3NCwiZXhwIjoxNjg4MzkzMDc0fQ.RWkWk-sWDqChbhUWBK9JqNowYXYIaFwslnV4ls_Xql4",
+							"value": "",
 							"type": "string"
 						}
 					]
@@ -366,7 +366,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImNhbWlAZ21haWwuY29tIiwicm9sZSI6IlVTRVIiLCJpYXQiOjE2ODgzODgwOTMsImV4cCI6MTY4ODM5MTY5M30.o_zEBLhHb8JuThmeJKxjpBJ-kkB1YbpwULP-dTBg1ao",
+							"value": "",
 							"type": "string"
 						}
 					]

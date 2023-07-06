@@ -6,18 +6,17 @@ import { authMiddleware } from "./middlewares/authMiddlewares";
 
 export const router = Router();
 
-router.use(authMiddleware); // MIDDLEWARE DE LOGIN
+router.use(authMiddleware);
 
-//Rutas para obtener todos los gastos de un usuario y para obtener un gasto por ID
+//Rutas para obtener todos los gastos de un usuario logueado y para obtener un gasto por ID de un usuario logueado
 router.get("/", controllers.getExpensesController);
 router.get("/:id", controllers.getExpenseIdController);
 
-//Ruta para consultar los gastos de un usuario de un mes y año en particular
-router.get("/consulta/:usuarioId/:anio/:mes", controllers.getMonthExpensesController);
+//Ruta para consultar los gastos de un usuario en un rango de fechas determinado
+router.get("/consulta/rangoFechas/:fechaInicio/:fechaFinal", controllers.getExpensesDateRangeController);
 
-//Ruta para consultar el total de gastos de un usuario de un mes y año en particular
-//router.get("/consulta/total/:usuarioId/:anio/:mes", controllers.getTotalMonthExpensesController);
-router.post("/consulta/total/rangoFechas/:fechaInicio/:fechaFinal", controllers.getTotalMonthExpensesController);
+//Ruta para consultar el total de gastos de un usuario en un rango de fechas determinado
+router.get("/consulta/total/:fechaInicio/:fechaFinal", controllers.getTotalExpensesDateRangeController);
 
 //Ruta para obtener el total de gastos registrados de un usuario
 router.get("/consulta/total", controllers.getTotalExpensesController);

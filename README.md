@@ -24,6 +24,12 @@ en Postman importar la colección de requests que se encuentra en la carpeta pos
 
 -> Registro y login de usuarios.
 
--> Creación, modificación y eliminación de gastos de un usuario.
+-> Creación, modificación y eliminación de un gasto de un usuario logueado.
 
--> Consulta de listado de gastos de un usuario.
+-> Consulta de todos los gastos de un usuario. 
+
+-> Consulta de un gasto en particular de un usuario.
+
+-> Consulta de gastos de un usuario en un rango de fechas determinado. 
+
+-> Consulta del total de gastos de un usuario en un rango de fechas establecido. 

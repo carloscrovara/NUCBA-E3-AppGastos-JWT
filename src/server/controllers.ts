@@ -4,10 +4,9 @@ import { getExpenses, getExpenseItemId } from "../business-logic/getExpense";
 import { updateExpense } from "../business-logic/updateExpense";
 import { deleteExpense } from "../business-logic/deleteExpense";
 import { getTotalExpenses } from "../business-logic/getTotalExpenses";
-import { getMonthExpenses } from "../business-logic/getMonthExpenses";
-import { getTotalMonthExpenses } from "../business-logic/getTotalMonthExpenses";
+import { getExpensesDateRange } from "../business-logic/getExpensesDateRange";
+import { getTotalExpensesDateRange } from "../business-logic/getTotalExpensesDateRange";
 
-//GASTOS
 export const getExpensesController = async (req: Request, res: Response) => {
     try {
         const result = await getExpenses(res);
@@ -73,26 +72,7 @@ export const getTotalExpensesController = async (req: Request, res: Response) =>
     }
 };
 
-/*
-export const getMonthExpensesController = async (req: Request, res: Response) => {
-    try {
-        const usuarioId = req.params.usuarioId;
-        const anio = req.params.anio;
-        const mes = req.params.mes;
-        const result = await getMonthExpenses(usuarioId, anio, mes);
-        if (result) {
-            res.json(result);
-            return;
-        }
-        res.status(404).json({ message: `No se encontraron registros.` });
-        return;
-    } catch (error: any) {
-        res.status(500).json({ message: error.message });
-    }
-};
-*/
-
-export const getMonthExpensesController = async (req: Request, res: Response) => {
+export const getExpensesDateRangeController = async (req: Request, res: Response) => {
     try {
         const fechaInicial = req.params.fechaInicio;
         const fechaFin  = req.params.fechaFinal;
@@ -102,7 +82,7 @@ export const getMonthExpensesController = async (req: Request, res: Response) =>
                 end: new Date(fechaFin),
             },
         }
-        const result = await getMonthExpenses(res, filterInput);
+        const result = await getExpensesDateRange(res, filterInput);
         if (result) {
             res.json(result);
             return;
@@ -114,12 +94,17 @@ export const getMonthExpensesController = async (req: Request, res: Response) =>
     }
 };
 
-export const getTotalMonthExpensesController = async (req: Request, res: Response) => {
+export const getTotalExpensesDateRangeController = async (req: Request, res: Response) => {
     try {
-        const usuarioId = req.params.usuarioId;
-        const anio = req.params.anio;
-        const mes = req.params.mes;
-        const result = await getTotalMonthExpenses(usuarioId, anio, mes);
+        const fechaInicial = req.params.fechaInicio;
+        const fechaFin  = req.params.fechaFinal;
+        const filterInput = {
+            dateRange: {
+                start: new Date(fechaInicial),
+                end: new Date(fechaFin),
+            },
+        }
+        const result = await getTotalExpensesDateRange(res, filterInput);
         if (result) {
             res.json(result);
             return;

@@ -10,7 +10,6 @@ export async function updateExpense(id: string, gasto: Item, res: Response, req:
             if (!item) {
                 throw new Error("No se encuentra el gasto a modificar o el ID del gasto corresponde a otro usuario.");
             }
-            
             const db = prisma();
             const udpatedItem = await db.gastos.update({
                 data: {
@@ -23,7 +22,7 @@ export async function updateExpense(id: string, gasto: Item, res: Response, req:
                     id: id,
                 },
             });
-        return udpatedItem;
+            return udpatedItem;
         } catch (err) {
             console.log(err);
             throw err;

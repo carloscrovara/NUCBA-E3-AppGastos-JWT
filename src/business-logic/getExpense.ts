@@ -27,13 +27,10 @@ export async function getExpenseItemId(itemId: string, userId:string): Promise<I
             },
             include: { gastos: true },
         });
-
-    if (!usuarios) {
-        return null;
-    }
-
-    return usuarios.gastos.find((item) => item.id === itemId) ?? null;
-
+        if (!usuarios) {
+            return null;
+        }
+        return usuarios.gastos.find((item) => item.id === itemId) ?? null;
     } catch (err) { 
         console.log(err);
         throw err;

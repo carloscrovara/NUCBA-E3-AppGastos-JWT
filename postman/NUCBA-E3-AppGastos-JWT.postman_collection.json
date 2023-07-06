@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "149df956-3edb-447b-abc4-79e68a4bcc3e",
+		"_postman_id": "e587c552-0939-4f5d-9063-b979ac9f0d26",
 		"name": "NUCBA-E3-AppGastos-JWT",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -82,7 +82,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"importe\": 60000,\r\n    \"descripcion\": \"Comida\"\r\n}",
+					"raw": "{\r\n    \"importe\": 4000,\r\n    \"descripcion\": \"ABL\",\r\n    \"usuarioId\": \"ceed85e6-1755-11ee-ad17-0cc47a347b24\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -121,7 +121,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"importe\": 1,\r\n    \"descripcion\": \"\"\r\n}",
+					"raw": "{\r\n    \"id\": \"b3dc6b41-176a-11ee-ad17-0cc47a347b24\",\r\n    \"importe\": 4600,\r\n    \"descripcion\": \"Monotributo\",\r\n    \"usuarioId\": \"ceed85e6-1755-11ee-ad17-0cc47a347b24\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -264,101 +264,6 @@
 			"response": []
 		},
 		{
-			"name": "Get all month expenses from user",
-			"request": {
-				"auth": {
-					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "",
-							"type": "string"
-						}
-					]
-				},
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "localhost:3000/api/gastos/consulta/:usuarioId/:anio/:mes",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
-					"path": [
-						"api",
-						"gastos",
-						"consulta",
-						":usuarioId",
-						":anio",
-						":mes"
-					],
-					"variable": [
-						{
-							"key": "usuarioId",
-							"value": ""
-						},
-						{
-							"key": "anio",
-							"value": ""
-						},
-						{
-							"key": "mes",
-							"value": ""
-						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Get total month expenses from user",
-			"request": {
-				"auth": {
-					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "",
-							"type": "string"
-						}
-					]
-				},
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "localhost:3000/api/gastos/consulta/total/:usuarioId/:anio/:mes",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
-					"path": [
-						"api",
-						"gastos",
-						"consulta",
-						"total",
-						":usuarioId",
-						":anio",
-						":mes"
-					],
-					"variable": [
-						{
-							"key": "usuarioId",
-							"value": ""
-						},
-						{
-							"key": "anio",
-							"value": ""
-						},
-						{
-							"key": "mes",
-							"value": ""
-						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
 			"name": "Get total expenses from user",
 			"request": {
 				"auth": {
@@ -384,6 +289,93 @@
 						"gastos",
 						"consulta",
 						"total"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get date range expenses from user",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/gastos//consulta/rangoFechas/:fechaInicio/:fechaFinal",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"gastos",
+						"",
+						"consulta",
+						"rangoFechas",
+						":fechaInicio",
+						":fechaFinal"
+					],
+					"variable": [
+						{
+							"key": "fechaInicio",
+							"value": ""
+						},
+						{
+							"key": "fechaFinal",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get date total range expenses from user",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/gastos/consulta/total/:fechaInicio/:fechaFinal",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"gastos",
+						"consulta",
+						"total",
+						":fechaInicio",
+						":fechaFinal"
+					],
+					"variable": [
+						{
+							"key": "fechaInicio",
+							"value": ""
+						},
+						{
+							"key": "fechaFinal",
+							"value": ""
+						}
 					]
 				}
 			},

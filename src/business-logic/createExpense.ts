@@ -12,7 +12,7 @@ export async function createExpense(item: Item, res: Response): Promise<Item> {
                 usuarioId: res.locals.userId,
             },
         });
-    return createdItem;
+        return createdItem;
     } catch (err) {
         console.log(err);
         throw err;

@@ -1,7 +1,6 @@
 import { Request, Response, NextFunction } from "express";
 import jwt from 'jsonwebtoken';
 
-
 const access_token_secret =  process.env.ACCESS_TOKEN_SECRET ?? ''
 
 //AUTENTICACION
@@ -29,7 +28,6 @@ export const authMiddleware =  async (req: Request, res: Response, next: NextFun
         res.status(401).json({ message: "NOT AUTHORIZED: TOKEN NOT VALID" });
     return;
     }
-
     res.status(401).json({ message: "NOT AUTHORIZED: TOKEN NOT VALID" });
     return;
 }

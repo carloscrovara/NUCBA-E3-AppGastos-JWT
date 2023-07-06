@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { login, register } from "../auth-logic/auth.functions";
+import { login, register, refreshToken } from "../auth-logic/auth.functions";
 
 export const loginController = async (req: Request, res: Response) => {
     const { email, password } = req.body;
@@ -21,6 +21,23 @@ export const registerController = async (req: Request, res: Response) => {
         return;
     } catch (err) {
         res.status(500).send(err);
+        return;
+    }
+}
+
+export const refreshTokenController = async (req: Request, res: Response) => {
+    const header = req.headers.authorization;
+    if (!header) {
+        res.status(401).json({ message: "NOT AUTHORIZED: TOKEN NOT PRESENT" });
+        return;
+    }
+    const token = header.split(" ")[1];
+    try{
+        const result = await refreshToken(token)
+        res.json(result)
+        return;
+    } catch (err){
+        res.status(500)
         return;
     }
 }

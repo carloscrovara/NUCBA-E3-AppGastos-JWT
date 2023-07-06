@@ -20,3 +20,5 @@ authRouter.post(
     validator,
     controllers.loginController
 );
+
+authRouter.post("/refresh",controllers.refreshTokenController);

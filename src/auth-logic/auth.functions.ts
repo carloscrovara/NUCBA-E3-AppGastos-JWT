@@ -10,13 +10,10 @@ export type loginResponse = { accessToken:string, refreshToken:string}
 export const login = async (email: string, password: string): Promise<loginResponse> =>{ 
     try {
         const user = await prisma().usuarios.findUnique({ where: { email: email } });
-        
         if (user === null) {
             throw new Error("User not found");
         }
-        
         const result = await bcrypt.compare(password, user.password);
-        
         if (result) {
             const accessToken = jwt.sign(
                 { 
@@ -29,7 +26,6 @@ export const login = async (email: string, password: string): Promise<loginRespo
                 expiresIn: "1h",
                 }
             );
-        
             const refreshToken = jwt.sign({ email: email }, refresh_token_secret, {
                 expiresIn: "72h",
             });
@@ -43,7 +39,6 @@ export const login = async (email: string, password: string): Promise<loginRespo
 
 export const register = async (email: string, password: string): Promise<any> => {
     const hash = await bcrypt.hash(password, 10);
-    
     try {
         const user = await prisma().usuarios.create({
             data: {
@@ -55,4 +50,40 @@ export const register = async (email: string, password: string): Promise<any> =>
     } catch (err) {
         throw err
     }
+}
+
+export const refreshToken = async (token: string): Promise<loginResponse> => {
+    try {
+        const data = jwt.verify(token, refresh_token_secret);
+        if (data) {
+            const dataparsed = data as unknown as {email:string};
+            const user = await prisma().usuarios.findUnique({
+                where: { email: dataparsed.email },
+            });
+            if (user === null) {
+                throw new Error('USER NOT FOUND')
+            }
+            const accessToken = jwt.sign(
+                {   
+                    email: user.email, 
+                    role: "USER",
+                    userId: user.id  
+                },
+                access_token_secret,
+                {
+                expiresIn: "1h",
+                }
+            );
+            const refreshToken = jwt.sign({ email: user.email }, refresh_token_secret, {
+                expiresIn: "72h",
+            });
+            return { accessToken: accessToken, refreshToken: refreshToken };
+        }
+    } catch (err: any) {
+        if (err.name === "TokenExpiredError") {
+            throw new Error( "NOT AUTHORIZED: TOKEN EXPIRED" );
+        }
+        throw new Error("NOT AUTHORIZED: TOKEN NOT VALID" );
+    }
+    throw new Error( "NOT AUTHORIZED: TOKEN NOT VALID" );
 }

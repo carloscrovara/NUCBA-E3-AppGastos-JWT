@@ -11,7 +11,7 @@ git clone https://github.com/carloscrovara/NUCBA-E3-AppGastos-JWT.git
 
 npm install
 
-crear archivo .env con las variables de entorno (conexión a bases de datos)
+crear archivo .env con las variables de entorno (conexión a bases de datos y valores de access y refresh secret tokens)
 
 npx prisma generate
 

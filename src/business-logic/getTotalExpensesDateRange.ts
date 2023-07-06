@@ -7,6 +7,7 @@ export async function getTotalExpensesDateRange(res:Response, filterInput: filte
     try {
         const filter: any = {
             usuarioId: res.locals.userId,
+            fecha_eliminacion: null,
         }
         if(filterInput.dateRange){
             filter.fecha_creacion = {

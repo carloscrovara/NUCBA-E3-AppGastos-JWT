@@ -7,8 +7,9 @@ export async function getTotalExpenses(res: Response) {
             where: {
                 usuario: {
                     id: res.locals.userId,
-                },  
-            },  
+                },
+                fecha_eliminacion: null,
+            },
             _sum: {
                 importe: true,
             },

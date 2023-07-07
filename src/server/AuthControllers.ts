@@ -37,7 +37,7 @@ export const refreshTokenController = async (req: Request, res: Response) => {
         res.json(result)
         return;
     } catch (err){
-        res.status(500)
+        res.status(500).json({ message: "NOT AUTHORIZED" });
         return;
     }
 }
